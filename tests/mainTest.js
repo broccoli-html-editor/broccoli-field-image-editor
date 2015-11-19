@@ -3,7 +3,7 @@ var path = require('path');
 var fs = require('fs');
 var phpjs = require('phpjs');
 var Promise = require("es6-promise").Promise;
-var Broccoli = require('broccoli-imageeditor');
+var Broccoli = require('broccoli-html-editor');
 
 function makeDefaultBroccoli(callback){
 	var broccoli = new Broccoli();

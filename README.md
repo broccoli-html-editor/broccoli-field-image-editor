@@ -1,12 +1,12 @@
-# broccoli-html-editor--table-field
+# broccoli-imageeditor-field
 
-_broccoli-html-editor--table-field_ は、 _broccoli-html-editor_ に カスタムフィールド "tableフィールド" を追加する拡張パッケージです。
+_broccoli-imageeditor-field_ は、 _broccoli-html-editor_ に カスタムフィールド "画像編集フィールド" を追加する拡張パッケージです。
 
 ## インストール - Install
 
 ```
 $ npm install broccoli-html-editor --save
-$ npm install broccoli-html-editor--table-field --save
+$ npm install broccoli-imageeditor-field --save
 ```
 
 ※ 設定手順はTBD

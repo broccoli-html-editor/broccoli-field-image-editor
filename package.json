@@ -20,7 +20,6 @@
   "dependencies": {
     "cheerio": "^0.19.0",
     "desktop-utils": "git://github.com/tomk79/node-desktop-utils.git",
-    "broccoli-imageeditor": "git://github.com/misak1/broccoli-imageeditor-field.git",
     "es6-promise": "^3.0.2",
     "glob": "^5.0.14",
     "iterate79": "0.0.1",

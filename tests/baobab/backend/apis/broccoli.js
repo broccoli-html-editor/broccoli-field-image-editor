@@ -9,7 +9,7 @@ module.exports = function( data, callback, main, socket ){
 	data = data||{};
 	callback = callback||function(){};
 
-	var Broccoli = require('broccoli-imageeditor');
+	var Broccoli = require('broccoli-html-editor');
 	var broccoli = new Broccoli();
 
 	it79.fnc(data, [
