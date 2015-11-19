@@ -11,8 +11,7 @@ module.exports = function( data, callback, main, socket ){
 
 	var Broccoli = require('broccoli-imageeditor');
 	var broccoli = new Broccoli();
-	// this.broccoli = window.broccoli = broccoli;
-	this.broccoli = broccoli;
+	this.broccoli = window.broccoli = broccoli;
 
 	it79.fnc(data, [
 		function(it1, data){

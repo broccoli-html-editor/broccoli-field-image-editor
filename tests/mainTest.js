@@ -18,7 +18,7 @@ function makeDefaultBroccoli(callback){
 			'pathResourceDir': '/test1/test1_files/resources/',
 			'realpathDataDir': path.resolve(__dirname, 'testdata/htdocs/test1/test1_files/guieditor.ignore/')+'/' ,
 			'customFields': {
-				'table': require('./../libs/main.js')
+				'imageeditor': require('./../libs/server.js')
 			}
 		},
 		function(){
