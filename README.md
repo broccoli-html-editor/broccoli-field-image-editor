@@ -11,6 +11,9 @@ $ npm install broccoli-imageeditor-field --save
 
 ※ 設定手順はTBD
 
+※ モジュール化手順
+差分通りにやると単体で動くハズ！ https://goo.gl/oRQ9Lo
+
 
 ## ライセンス - License
 
@@ -19,6 +22,5 @@ MIT License
 
 ## 作者 - Author
 
-- (C)Tomoya Koyanagi <tomk79@gmail.com>
-- website: <http://www.pxt.jp/>
-- Twitter: @tomk79 <http://twitter.com/tomk79/>
+- (C)Misaki Shibata <misaki.pink@gmail.com>
+
