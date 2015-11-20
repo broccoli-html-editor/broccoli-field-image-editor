@@ -4,7 +4,7 @@ _broccoli-imageeditor-field_ は、 _broccoli-html-editor_ に カスタムフ�
 
 ※ モジュール化手順
 下リンクの差分箇所を修正します  
-pickles2
+https://goo.gl/aOB8Jn
 
 ※ 設定手順
 ### broccoli-imageeditor-field install
