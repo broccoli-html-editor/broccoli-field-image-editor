@@ -266,9 +266,12 @@ console.log('data',data);
 			if(!res.base64){
 				editData = '[]';
 			}else{
+				console.log('load editData!');
 				editData = res.base64;
+				console.log('load editData', editData);
 			}
 		});
+
 
 		/****************
 		 * resKeyEditPng
@@ -315,7 +318,14 @@ console.log('data',data);
 					// "accept":"image/vnd.adobe.photoshop"
 				})
 				.css({'width':'100%'})
+				.bind('click', function(e){
+					$(this).val('');
+				})
 				.bind('change', function(e){
+					console.log('change file val:', $(this).val());
+					if($(this).val() == null || $(this).val() === ''){
+						return;
+					}
 					var fileInfo = e.target.files[0];
 					var realpathSelected = $(this).val();
 					var resInfo = new resouce();
@@ -355,6 +365,7 @@ console.log('fileInfo.type', fileInfo.type);
 											$img.attr({
 												"src": obj.dataUri
 											});
+											console.log('editData', editData);
 											$('.jCrop-editor').empty().append($(_htmlImgEditor({
 												'imageData': $img[0].outerHTML,
 												'rectData': rectData,
@@ -706,6 +717,7 @@ console.log('fileInfo.type', fileInfo.type);
 				 * resKeyOrgPng
 				 ****************/
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyOrgPng, function(result){
 						if( result === false ){
 							_resMgr.addResource(function(newResKey){
@@ -719,6 +731,7 @@ console.log('fileInfo.type', fileInfo.type);
 					});
 				} ,
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyOrgPng, function(res){
 						resInfo = res;
 						it1.next(data);
@@ -726,6 +739,7 @@ console.log('fileInfo.type', fileInfo.type);
 					return;
 				} ,
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					resInfo.ext = 'png';
 					resInfo.type = 'image/png';
 					resInfo.size = 0;
@@ -746,6 +760,7 @@ console.log('fileInfo.type', fileInfo.type);
 				 * resKeyEditPng
 				 ****************/
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyEditPng, function(result){
 						if( result === false ){
 							_resMgr.addResource(function(newResKey){
@@ -759,6 +774,7 @@ console.log('fileInfo.type', fileInfo.type);
 					});
 				} ,
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyEditPng, function(res){
 						resInfo = res;
 						it1.next(data);
@@ -766,6 +782,7 @@ console.log('fileInfo.type', fileInfo.type);
 					return;
 				} ,
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					resInfo.ext = 'png';
 					resInfo.type = 'image/png';
 					resInfo.size = 0;
@@ -848,6 +865,7 @@ console.log('fileInfo.type', fileInfo.type);
 				function(it1, data){
 					resInfo.ext = 'json';
 					resInfo.isPrivateMaterial = false;
+					console.log('linkData', linkData);
 					resInfo.base64 = JSON.stringify(linkData).toString('base64');
 					_resMgr.updateResource( data.resKeyEditData, resInfo, function(result){
 						_resMgr.getResourcePublicPath( data.resKeyEditData, function(publicPath){
