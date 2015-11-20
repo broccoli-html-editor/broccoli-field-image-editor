@@ -66,6 +66,10 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/*"])
 # cp node_modules/broccoli-imageeditor-field/tests/testdata/modules1/dev/imageeditor #{プロジェクトフォルダ}/px-files/themes/broccoli/modules/images/
 ```
 
+- 配置&実行
+```
+# gulp; gulp watch;
+```
 
 ## ライセンス - License
 
