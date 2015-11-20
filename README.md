@@ -28,7 +28,7 @@ https://goo.gl/oRQ9Lo
 ```
 
 - gulpfile.jsにタスクを追加
-```sh
+```
 # atom gulpfile.js
 ```
 ```js
@@ -39,7 +39,7 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/*"])
 ```
 
 - baskendJSに追加  
-```sh
+```
 # atom backend/apis/broccoliBridgeForThemeEditor.js
 ```
 ```js
@@ -49,7 +49,7 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/*"])
 ```
 
 - frontendJSに追加  
-```sh
+```
 # atom  src/project/themeEditor/editors/broccoli-html-editor/index.html.twig
 ```
 ```js
@@ -59,7 +59,7 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/*"])
 ```
 
 - themeに追加  
-```sh
+```
 # atom src/project/themeEditor/editors/broccoli-html-editor/index_files/cont.js
 ```
 ```js
@@ -69,7 +69,7 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/*"])
 ```
 
 - templateを追加
-```sh
+```
 # cp node_modules/broccoli-imageeditor-field/tests/testdata/modules1/dev/imageeditor #{プロジェクトフォルダ}/px-files/themes/broccoli/modules/images/
 ```
 
