@@ -688,10 +688,6 @@ console.log('fileInfo.type', fileInfo.type);
 		var resInfo;
 		var linkData = [];
 		var $dom = $(elm);
-		if($dom.data('isChanged') !== true){
-			callback(data);
-		}
-
 		$.each($('#jCrop-link li'), function(i,v){
 			var data = {
 				'x':parseInt($(v).find('input[name="cx"]').val()),
@@ -716,6 +712,7 @@ console.log('fileInfo.type', fileInfo.type);
 				 * resKeyOrgPng
 				 ****************/
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyOrgPng, function(result){
 						if( result === false ){
 							_resMgr.addResource(function(newResKey){
@@ -729,6 +726,7 @@ console.log('fileInfo.type', fileInfo.type);
 					});
 				} ,
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyOrgPng, function(res){
 						resInfo = res;
 						it1.next(data);
@@ -736,6 +734,7 @@ console.log('fileInfo.type', fileInfo.type);
 					return;
 				} ,
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					resInfo.ext = 'png';
 					resInfo.type = 'image/png';
 					resInfo.size = 0;
@@ -756,6 +755,7 @@ console.log('fileInfo.type', fileInfo.type);
 				 * resKeyEditPng
 				 ****************/
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyEditPng, function(result){
 						if( result === false ){
 							_resMgr.addResource(function(newResKey){
@@ -769,6 +769,7 @@ console.log('fileInfo.type', fileInfo.type);
 					});
 				} ,
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyEditPng, function(res){
 						resInfo = res;
 						it1.next(data);
@@ -776,6 +777,7 @@ console.log('fileInfo.type', fileInfo.type);
 					return;
 				} ,
 				function(it1, data){
+					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					resInfo.ext = 'png';
 					resInfo.type = 'image/png';
 					resInfo.size = 0;
