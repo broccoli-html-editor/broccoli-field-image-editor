@@ -2,16 +2,9 @@
 
 _broccoli-imageeditor-field_ は、 _broccoli-html-editor_ に カスタムフィールド "画像編集フィールド" を追加する拡張パッケージです。
 
-## インストール - Install
-
-```
-$ npm install broccoli-html-editor --save
-$ npm install broccoli-imageeditor-field --save
-```
-
 ※ モジュール化手順
 下リンクの差分箇所を修正します  
-https://goo.gl/oRQ9Lo
+pickles2
 
 ※ 設定手順
 ### broccoli-imageeditor-field install
