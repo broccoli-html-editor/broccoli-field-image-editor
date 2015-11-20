@@ -314,7 +314,14 @@ console.log('data',data);
 					// "accept":"image/vnd.adobe.photoshop"
 				})
 				.css({'width':'100%'})
+				.bind('click', function(e){
+					$(this).val('');
+				})
 				.bind('change', function(e){
+					console.log('change file val:', $(this).val());
+					if($(this).val() == null || $(this).val() === ''){
+						return;
+					}
 					var fileInfo = e.target.files[0];
 					var realpathSelected = $(this).val();
 					var resInfo = new resouce();
@@ -681,6 +688,10 @@ console.log('fileInfo.type', fileInfo.type);
 		var resInfo;
 		var linkData = [];
 		var $dom = $(elm);
+		if($dom.data('isChanged') !== true){
+			callback(data);
+		}
+
 		$.each($('#jCrop-link li'), function(i,v){
 			var data = {
 				'x':parseInt($(v).find('input[name="cx"]').val()),
