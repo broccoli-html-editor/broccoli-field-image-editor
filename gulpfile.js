@@ -43,11 +43,11 @@ gulp.task("test/main.js", function() {
 gulp.task("watch", function() {
 	gulp.watch(["src/**/*","libs/**/*","tests/testdata/htdocs/index_files/*.src.js"], _tasks);
 
-	var port = packageJson.baobabConfig.defaultPort;
-	var svrCtrl = require('baobab-fw').createSvrCtrl();
-	svrCtrl.boot(function(){
-		require('child_process').spawn('open',[svrCtrl.getUrl()]);
-	});
+//	var port = packageJson.baobabConfig.defaultPort;
+//	var svrCtrl = require('baobab-fw').createSvrCtrl();
+//	svrCtrl.boot(function(){
+//		require('child_process').spawn('open',[svrCtrl.getUrl()]);
+//	});
 });
 
 // src 中のすべての拡張子を処理(default)

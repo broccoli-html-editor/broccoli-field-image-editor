@@ -702,7 +702,7 @@ console.log('fileInfo.type', fileInfo.type);
 				'color': $(v).find('input[name="color"]').val(),
 				'label': $(v).find('input[name="linkName"]').val(),
 				'url':   $(v).find('input[name="linkURL"]').val(),
-				'target':$(v).find('input[name="linkTarget"]').val()
+				'target':$(v).find('input[name="linkTarget"]').prop('checked')
 			};
 			linkData.push(data);
 		});
@@ -908,12 +908,14 @@ console.log('fileInfo.type', fileInfo.type);
 					var psdHeight = jsonRect.h; // 画像サイズ
 					var linkHtml = '';
 					for (var r in linkData) {
-						var psd_data = linkData[r];
-						var rect_top = Math.uFloor(psd_data.y / psdHeight * 100, 3) + '%';
-						var rect_left = Math.uFloor(psd_data.x  / psdWidth * 100, 3) + '%';
-						var rect_width = Math.uFloor(psd_data.w  / psdWidth * 100, 3) + '%';
-						var rect_height =  Math.uFloor(psd_data.h / psdHeight * 100, 3) + '%';
-						linkHtml += '<a href="' + psd_data.url + '" class="img_link" style="display:block; position:absolute; top:' + rect_top + '; left:' + rect_left + '; width:' + rect_width + '; height:' + rect_height + ';"></a>' + "\n";
+						var link_data = linkData[r];
+						var rect_top = Math.uFloor(link_data.y / psdHeight * 100, 3) + '%';
+						var rect_left = Math.uFloor(link_data.x  / psdWidth * 100, 3) + '%';
+						var rect_width = Math.uFloor(link_data.w  / psdWidth * 100, 3) + '%';
+						var rect_height =  Math.uFloor(link_data.h / psdHeight * 100, 3) + '%';
+						var link_target = "";
+						if(link_data.target){link_target='target="_blank"';}
+						linkHtml += '<a href="' + link_data.url + '" ' + link_target + ' class="img_link" style="display:block; position:absolute; top:' + rect_top + '; left:' + rect_left + '; width:' + rect_width + '; height:' + rect_height + ';"></a>' + "\n";
 					}
 
 					var htmlTmpl = (function() {/*

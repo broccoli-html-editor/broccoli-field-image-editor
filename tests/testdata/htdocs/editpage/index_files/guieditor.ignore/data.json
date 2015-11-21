@@ -28,37 +28,89 @@
       "modId": "testMod1:dev/imageeditor",
       "fields": {
        "image_src": {
-        "resKeyOrgPng": "3693cd2ccc4886e3471b345c2ce6eb72",
-        "OrgPngPath": "./index_files/resources/aaea.pptx.png",
-        "resKeyEditPng": "8fc180758bef5e6b2484545e4bec75dc",
-        "EditPngPath": "./index_files/resources/8fc180758bef5e6b2484545e4bec75dc.png",
-        "resKeyRect": "804d32faa111023ef568b82cff761929",
-        "resKeyEditData": "397c0e28a88470b43b82a2d4e11b670f",
-        "resKeyHtml": "dfbb34b3d9d915f9a1588f267c983f4b",
-        "HtmlPath": "./index_files/resources/dfbb34b3d9d915f9a1588f267c983f4b.html"
+        "resKeyOrgPng": "",
+        "OrgPngPath": "",
+        "resKeyEditPng": "",
+        "EditPngPath": "",
+        "resKeyRect": "ecea779293ed2d05a12fd30dad26ab47",
+        "resKeyEditData": "8e9b10e3737151a5ff8bc76f267c8c08",
+        "resKeyHtml": "d61cce42ae74d9a163dab099c5330e7a",
+        "HtmlPath": "./index_files/resources/d61cce42ae74d9a163dab099c5330e7a.html"
        }
-      }
-     },
-     {
-      "modId": "testMod1:dev/psd",
-      "fields": {
-       "image_src": ""
       }
      },
      {
       "modId": "testMod1:dev/imageeditor",
       "fields": {
        "image_src": {
-        "resKeyOrgPng": "a481ea5122fee2e82185ba1899deb9f1",
-        "OrgPngPath": "./index_files/resources/a481ea5122fee2e82185ba1899deb9f1.png",
-        "resKeyEditPng": "d685042c0ea83180c1631fca3549dc54",
-        "EditPngPath": "./index_files/resources/d685042c0ea83180c1631fca3549dc54.png",
-        "resKeyRect": "dead7f14ce9aa47444d25043f2c9798f",
-        "resKeyEditData": "c81f1171bd92bf469a2fd96f8d340c91",
-        "resKeyHtml": "ed25100484d0ea38a47bafab1f286f5b",
-        "HtmlPath": "./index_files/resources/ed25100484d0ea38a47bafab1f286f5b.html",
-        "resKey": "ed94cdfa2063c8a97b816e4f082ffbf4",
-        "path": "./index_files/resources/aaea.pptx"
+        "resKeyOrgPng": "",
+        "OrgPngPath": "",
+        "resKeyEditPng": "",
+        "EditPngPath": "",
+        "resKeyRect": "d948139a624bf39a937ff26fa449a48c",
+        "resKeyEditData": "f2474912345207c015022e8d9bb7ec82",
+        "resKeyHtml": "266520b70182fee089af4234dfb46b88",
+        "HtmlPath": "./index_files/resources/266520b70182fee089af4234dfb46b88.html"
+       }
+      }
+     },
+     {
+      "modId": "testMod1:dev/imageeditor",
+      "fields": {
+       "image_src": {
+        "resKeyOrgPng": "",
+        "OrgPngPath": "",
+        "resKeyEditPng": "",
+        "EditPngPath": "",
+        "resKeyRect": "46c989f6b22a259a1b71903f25bcbcc8",
+        "resKeyEditData": "3fe4700c5d2f2d4509a879f856f5b811",
+        "resKeyHtml": "14c72665dc156c601f6863e4a5605fba",
+        "HtmlPath": "./index_files/resources/14c72665dc156c601f6863e4a5605fba.html"
+       }
+      }
+     },
+     {
+      "modId": "testMod1:dev/imageeditor",
+      "fields": {
+       "image_src": {
+        "resKeyOrgPng": "",
+        "OrgPngPath": "",
+        "resKeyEditPng": "",
+        "EditPngPath": "",
+        "resKeyRect": "855622cb0557b68992721ef7807cb392",
+        "resKeyEditData": "3ed4a92b681d127aea71ce950c828e2e",
+        "resKeyHtml": "58fba3447f7db248773fa0fbcd9c5a60",
+        "HtmlPath": "./index_files/resources/58fba3447f7db248773fa0fbcd9c5a60.html"
+       }
+      }
+     },
+     {
+      "modId": "testMod1:dev/imageeditor",
+      "fields": {
+       "image_src": {
+        "resKeyOrgPng": "",
+        "OrgPngPath": "",
+        "resKeyEditPng": "",
+        "EditPngPath": "",
+        "resKeyRect": "365a6e89de6228056efaf8af69335028",
+        "resKeyEditData": "55c3e134ce55adae4ad88c07b05adc1f",
+        "resKeyHtml": "cce80c91e8c4b0f191a4c704491eefe7",
+        "HtmlPath": "./index_files/resources/cce80c91e8c4b0f191a4c704491eefe7.html"
+       }
+      }
+     },
+     {
+      "modId": "testMod1:dev/imageeditor",
+      "fields": {
+       "image_src": {
+        "resKeyOrgPng": "9a517a942727609c669e25706b80b423",
+        "OrgPngPath": "./index_files/resources/9a517a942727609c669e25706b80b423.png",
+        "resKeyEditPng": "e38e7aac353c1041c59ea4ce12b012fd",
+        "EditPngPath": "./index_files/resources/e38e7aac353c1041c59ea4ce12b012fd.png",
+        "resKeyRect": "4e51dbf85446ad855a77cb635d33dcd5",
+        "resKeyEditData": "9b4b0133d374acd1723b69f80684d999",
+        "resKeyHtml": "74d49a2381a01e559e756a42b042255a",
+        "HtmlPath": "./index_files/resources/74d49a2381a01e559e756a42b042255a.html"
        }
       }
      }
