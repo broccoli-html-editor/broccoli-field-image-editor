@@ -26,7 +26,7 @@ https://goo.gl/aOB8Jn
 ```
 ```js
 // broccoli-client (frontend) を処理
-gulp.src(["node_modules/broccoli-imageeditor-field/dist/*"])
+gulp.src(["node_modules/broccoli-imageeditor-field/dist/**/*"])
   .pipe(gulp.dest( './dist/libs/broccoli-imageeditor-field/dist/' ))
 ;
 ```
@@ -48,6 +48,12 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/*"])
 ```js
 <!--broccoli-imageeditor-field -->
 <script src="/libs/broccoli-imageeditor-field/dist/broccoli-imageeditor-field.js"></script>
+<link rel="stylesheet" href="/libs/broccoli-imageeditor-field/dist/css/Jcrop.css" />
+<script src="/libs/broccoli-imageeditor-field/dist/Jcrop-editor.js"></script>
+<script src="/libs/broccoli-imageeditor-field/dist/Jcrop.js"></script>
+<script src="/libs/broccoli-imageeditor-field/dist/jquery.animate-colors-min.js"></script>
+<script src="/libs/broccoli-imageeditor-field/dist/rgbcolor.js"></script>
+<script src="/libs/broccoli-imageeditor-field/dist/underscore-min.js"></script>	
 
 ```
 

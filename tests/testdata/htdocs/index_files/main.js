@@ -149,15 +149,15 @@ module.exports = function(broccoli){
 
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.href = './css/Jcrop.css';
+		link.href = '/libs/broccoli-imageeditor-field/dist/css/Jcrop.css';
 		rtn.append(link);
 
 		var url = [
-		"./js/underscore-min.js",
-		"./js/jquery.animate-colors-min.js",
-		"./js/Jcrop.js",
-		"./js/Jcrop-editor.js",
-		"./js/rgbcolor.js"
+		"/libs/broccoli-imageeditor-field/dist/js/underscore-min.js",
+		"/libs/broccoli-imageeditor-field/dist/js/jquery.animate-colors-min.js",
+		"/libs/broccoli-imageeditor-field/dist/js/Jcrop.js",
+		"/libs/broccoli-imageeditor-field/dist/js/Jcrop-editor.js",
+		"/libs/broccoli-imageeditor-field/dist/js/rgbcolor.js"
 		];
 		for(var url_i=0; url_i< url.length; url_i++){
 			var script = document.createElement('script');
