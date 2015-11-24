@@ -149,6 +149,76 @@ module.exports = function(broccoli) {
           }
         });
 				break;
+      case 'savePNG':
+        var data = options.data;
+        log.debug('data', data);
+        it79.fnc(
+          data, [
+            // PNGパス取得
+            function(it1, data) {
+              _resMgr.getResourceOriginalRealpath(data.resKey, function(OriginalPath) {
+                data.pngPath = OriginalPath;
+                it1.next(data);
+                return;
+              });
+            },
+            // PNGキー,PNGパスを取得
+            function(it1, data) {
+              _resMgr.getResource(data.resKeyOrgPng, function(result) {
+                _resMgr.addResource(function(newResKeyOrgPng) {
+                  data.resKeyOrgPng = newResKeyOrgPng;
+                  // OrgPngPath
+                  _resMgr.getResourceOriginalRealpath(data.resKeyOrgPng, function(OriginalPath) {
+                    data.OrgPngPath = OriginalPath;
+                    it1.next(data);
+                    return;
+                  });
+                });
+              });
+            },
+            // PSD解析 ＆ PNG登録
+            function(it1, data) {
+              var file = data.pngPath;
+              log.error('data.OrgPngPath', data.pngPath);
+              // PNG作成
+              var base64PNG = data.base64;
+              var resPngInfo = {};
+              data.resPngInfo = resPngInfo;
+              resPngInfo.isPrivateMaterial = false;
+              resPngInfo.size = 0;
+              resPngInfo.ext = "png";
+              resPngInfo.type = "image/png";
+              resPngInfo.alt = "PSDから作成されたPNG";
+              // log.debug(resPngInfo);
+              // resPngInfo.base64 = (base64PSD).replace(new RegExp('^data\\:[^\\;]*\\;base64\\,'), '');
+              resPngInfo.base64 = base64PNG;
+              console.log('BBB64' + data.base64);
+              log.help('data.resKeyOrgPng', data.resKeyOrgPng);
+              _resMgr.updateResource(data.resKeyOrgPng, resPngInfo, function() {
+                _resMgr.getResourcePublicPath(data.resKeyOrgPng, function(publicPath) {
+                  data.pngPublicPath = publicPath;
+                  _resMgr.resetBinFromBase64(data.resKeyOrgPng, function() {
+                    it1.next(data);
+                    return;
+                  });
+                });
+              });
+            },
+            function(it1, data) {
+              log.help("resKeyOrgPng", data.resKeyOrgPng);
+              log.help("PngPath", data.pngPublicPath);
+              log.help("PngInfo", data.resPngInfo);
+              callback({
+                'resKeyOrgPng':data.resKeyOrgPng,
+                'PngPath':data.pngPublicPath,
+                'PngInfo':data.resPngInfo
+              });
+              it1.next(data);
+              return;
+            }
+          ]
+        );
+        break;
       case 'convertPPTX':
         var data = options.data;
         var psdHeight = 0, psdWidth = 0;

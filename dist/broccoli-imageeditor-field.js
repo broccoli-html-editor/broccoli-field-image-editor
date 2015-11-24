@@ -331,9 +331,10 @@ console.log('data',data);
 					var resInfo = new resouce();
 
 console.log('fileInfo.type', fileInfo.type);
-					// (PNG)
+
 					if( realpathSelected ){
 						if(fileInfo.type === 'image/png'){
+							// PNG
 							fileInfo.name
 							resInfo.readSelectedLocalFile(fileInfo, function(obj){
 								// $btnOK.prop('disabled', true); // ボタン無効化
@@ -372,6 +373,7 @@ console.log('fileInfo.type', fileInfo.type);
 												'editData': editData
 											})));
 											resInfo.base64 = obj.base64;
+											data.base64 = obj.base64;
 											_resMgr.updateResource( data.resKey, resInfo, function(){
 												_resMgr.getResourcePublicPath( data.resKey, function(publicPath){
 													data.path = publicPath;
@@ -390,30 +392,33 @@ console.log('fileInfo.type', fileInfo.type);
 										} ,
 										// /画像更新
 										function(it1, data){
-											// case 'convertPPTX':
+											_this.callGpi(
+												{
+													'api': 'savePNG',
+													'data': data
+												},
+												function(result){
+													console.log("PNG result");
+													$btnOK.prop('disabled', false); // ボタン無効化解除
+													$elem = $("[data-broccoli-edit-window-field-name='image_src']");
+													$elem.data('resKeyOrgPng', result.resKeyOrgPng);
+													$elem.data('PngPath', result.PngPath);
+													$elem.data('PngInfo', result.PngInfo);
 
-											// _this.callGpi(
-											// 	{
-											// 		'api': 'convertPSD',
-											// 		'data': data
-											// 	},
-											// 	function(result){
-											// 		$btnOK.prop('disabled', false); // ボタン無効化解除
-											// 		$elem = $("[data-broccoli-edit-window-field-name='image_src']");
-											// 		$elem.data('resKeyOrgPng', result.resKeyOrgPng);
-											// 		$elem.data('PngPath', result.PngPath);
-											// 		$elem.data('PngInfo', result.PngInfo);
-											//
-											// 		$elem.data('resKeyHtml', result.resKeyHtml);
-											// 		$elem.data('HtmlPath', result.HtmlPath);
-											// 		$elem.data('isChanged', true);
-											// 		// console.log(result.PngInfo);
-											// 		var base64Png = 'data:image/png;base64,' + result.PngInfo.base64;
-											// 		$('.img_editor-img').attr({"src": base64Png});
-											// 		// console.log(result);
-											// 		it1.next(data);
-											// 	}
-											// );
+													$elem.data('resKeyHtml', result.resKeyHtml);
+													$elem.data('HtmlPath', result.HtmlPath);
+													$elem.data('isChanged', true);
+													console.log('clientXX', result.PngInfo);
+													var base64Png = 'data:image/png;base64,' + result.PngInfo.base64;
+													$('.img_editor-img').attr({"src": base64Png});
+													// console.log(result);
+
+													// 直接値を書き込む
+													$('#jCrop-imgBase64').val(base64Png);
+
+													it1.next(data);
+												}
+											);
 										} ,
 										function(it1, data){
 											callback(data);
@@ -423,7 +428,7 @@ console.log('fileInfo.type', fileInfo.type);
 								);
 							});
 
-
+						// /PNG
 					} else if(fileInfo.type === 'application/vnd.openxmlformats-officedocument.presentationml.presentation'){
 						// PPTX
 							resInfo.readSelectedLocalFile(fileInfo, function(obj){
@@ -474,6 +479,7 @@ console.log('fileInfo.type', fileInfo.type);
 													'data': data
 												},
 												function(result){
+													console.log("PPTX result");
 													$btnOK.prop('disabled', false); // ボタン無効化解除
 													$elem = $("[data-broccoli-edit-window-field-name='image_src']");
 													$elem.data('resKeyOrgPng', result.resKeyOrgPng);
@@ -482,6 +488,7 @@ console.log('fileInfo.type', fileInfo.type);
 													$elem.data('isChanged', true);
 													// console.log(result.PngInfo);
 													var base64Png = 'data:image/png;base64,' + result.PngInfo.base64;
+													console.log('base64Pngx2', base64Png);
 
 													// HTML一旦削除して作り直し
 													$img.attr({
@@ -522,7 +529,7 @@ console.log('fileInfo.type', fileInfo.type);
 							});
 							// PPTX
 					}else if(fileInfo.type === 'image/vnd.adobe.photoshop'){
-						// PSD
+							// PSD
 							resInfo.readSelectedLocalFile(fileInfo, function(obj){
 								$btnOK.prop('disabled', true); // ボタン無効化
 								var $dom = $(elm);
@@ -571,6 +578,7 @@ console.log('fileInfo.type', fileInfo.type);
 													'data': data
 												},
 												function(result){
+													console.log("PSD result");
 													$btnOK.prop('disabled', false); // ボタン無効化解除
 													$elem = $("[data-broccoli-edit-window-field-name='image_src']");
 													$elem.data('resKeyOrgPng', result.resKeyOrgPng);
