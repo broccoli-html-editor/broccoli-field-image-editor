@@ -11,7 +11,8 @@ var browserify = require("gulp-browserify");//NodeJSのコードをブラウザ�
 var packageJson = require(__dirname+'/package.json');
 var _tasks = [
 	'broccoli-imageeditor-field.js',
-	'test/main.js'
+	'test/main.js',
+	'copy',
 ];
 
 // broccoli-imageeditor-field.js (front側) を処理
@@ -36,6 +37,15 @@ gulp.task("test/main.js", function() {
 		.pipe(browserify({}))
 		.pipe(concat('main.js'))
 		.pipe(gulp.dest( './tests/testdata/htdocs/index_files/' ))
+	;
+});
+
+gulp.task("copy", function() {
+	gulp.src(["libs/css/**/*"])
+		.pipe(gulp.dest( './tests/testdata/htdocs/css/' ))
+	;
+	gulp.src(["libs/js/**/*"])
+		.pipe(gulp.dest( './tests/testdata/htdocs/js/' ))
 	;
 });
 

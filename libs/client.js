@@ -73,8 +73,6 @@ module.exports = function(broccoli){
 	 * エディタUIを生成
 	 */
 	this.mkEditor = function( mod, data, elm, callback ){
-		var isCache = false;
-		var extParam = (isCache) ? "" : "?dt=" + new Date().getTime();
 		var rtn = $('<div>');
 
 		var htmlImgEditor = (function() {/*
@@ -86,7 +84,7 @@ module.exports = function(broccoli){
 		      </label><a class="button-M btn_icon_cut jCrop-trim">切り取り</a>
 					<div class="button-group"><a class="button-S btn_icon_minimum jCrop-minimum">最小</a><a class="button-S btn_icon_maximum jCrop-maximum">最大</a></div>
 					<div class="button-group"><a class="button-S btn_icon_horizontal_center jCrop-horizontal-center">横中央</a><a class="button-S btn_icon_vertical_center jCrop-vertical-middle">縦中央</a><a class="button-S btn_icon_center jCrop-center">中央</a></div>
-					<div class="button-group"><a class="button-S btn_icon_horizotal_split jCrop-hTrim">横分割</a><a class="button-S btn_icon_vertical_split jCrop-vTrim">縦分割</a></div>
+					<div class="button-group"><a class="button-S btn_icon_horizotal_split jCrop-hSplit">横分割</a><a class="button-S btn_icon_vertical_split jCrop-vSplit">縦分割</a></div>
 		      <div class="jCrop-trim-prevew">
 		        <h3>プレビュー</h3>
 		        <div class="jCrop-origin-imgSize">
@@ -150,15 +148,15 @@ module.exports = function(broccoli){
 
 		var link = document.createElement('link');
 		link.rel = 'stylesheet';
-		link.href = '//rawgithub.com/misak1/node-clop/master/css/Jcrop.css';
+		link.href = './css/Jcrop.css';
 		rtn.append(link);
 
 		var url = [
-		"//rawgithub.com/misak1/node-clop/master/js/underscore-min.js" + extParam,
-		"//rawgithub.com/misak1/node-clop/master/js/jquery.animate-colors-min.js" + extParam,
-		"//rawgithub.com/misak1/node-clop/master/js/Jcrop.js" + extParam,
-		"//rawgithub.com/misak1/node-clop/master/js/Jcrop-editor.js" + extParam,
-		"//rawgithub.com/misak1/node-clop/master/js/rgbcolor.js" + extParam
+		"./js/underscore-min.js",
+		"./js/jquery.animate-colors-min.js",
+		"./js/Jcrop.js",
+		"./js/Jcrop-editor.js",
+		"./js/rgbcolor.js"
 		];
 		for(var url_i=0; url_i< url.length; url_i++){
 			var script = document.createElement('script');
@@ -312,9 +310,8 @@ console.log('data',data);
 				.attr({
 					"name":mod.name ,
 					"type":"file",
-					"webkitfile":"webkitfile"
-					// ,
-					// "accept":"image/vnd.adobe.photoshop"
+					"webkitfile":"webkitfile",
+					"accept":"image/png,application/vnd.openxmlformats-officedocument.presentationml.presentation"
 				})
 				.css({'width':'100%'})
 				.bind('click', function(e){
