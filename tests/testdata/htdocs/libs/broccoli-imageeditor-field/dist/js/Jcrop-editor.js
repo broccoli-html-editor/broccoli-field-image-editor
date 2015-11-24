@@ -396,6 +396,10 @@ function JcropEditorLib(rectData, editData){
 
             // リサイズ
             changeRect();
+
+            // 変更フラグ
+            $elem = $("[data-broccoli-edit-window-field-name='image_src']");
+            $elem.data('isChanged', true);
           })
       });
 
