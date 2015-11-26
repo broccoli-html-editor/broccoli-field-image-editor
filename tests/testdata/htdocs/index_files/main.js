@@ -170,7 +170,7 @@ module.exports = function(broccoli){
 		var $DL_link = "", DL_file = "";
 		if( typeof(data) !== typeof({}) ){ data = {}; }
 
-console.log('data',data);
+		// console.log('data',data);
 
 		if( typeof(data.resKeyOrgPng) !== typeof('') ){
 			data.resKeyOrgPng = '';
@@ -264,9 +264,9 @@ console.log('data',data);
 			if(!res.base64){
 				editData = '[]';
 			}else{
-				console.log('load editData!');
+				// console.log('load editData!');
 				editData = res.base64;
-				console.log('load editData', editData);
+				// console.log('load editData', editData);
 			}
 		});
 
@@ -319,7 +319,7 @@ console.log('data',data);
 					$(this).val('');
 				})
 				.bind('change', function(e){
-					console.log('change file val:', $(this).val());
+					// console.log('change file val:', $(this).val());
 					if($(this).val() == null || $(this).val() === ''){
 						return;
 					}
@@ -327,7 +327,7 @@ console.log('data',data);
 					var realpathSelected = $(this).val();
 					var resInfo = new resouce();
 
-console.log('fileInfo.type', fileInfo.type);
+					// console.log('fileInfo.type', fileInfo.type);
 
 					if( realpathSelected ){
 						if(fileInfo.type === 'image/png'){
@@ -363,7 +363,7 @@ console.log('fileInfo.type', fileInfo.type);
 											$img.attr({
 												"src": obj.dataUri
 											});
-											console.log('editData', editData);
+											// console.log('editData', editData);
 											$('.jCrop-editor').empty().append($(_htmlImgEditor({
 												'imageData': $img[0].outerHTML,
 												'rectData': rectData,
@@ -405,7 +405,7 @@ console.log('fileInfo.type', fileInfo.type);
 													$elem.data('resKeyHtml', result.resKeyHtml);
 													$elem.data('HtmlPath', result.HtmlPath);
 													$elem.data('isChanged', true);
-													console.log('clientXX', result.PngInfo);
+													// console.log('clientXX', result.PngInfo);
 													var base64Png = 'data:image/png;base64,' + result.PngInfo.base64;
 													$('.img_editor-img').attr({"src": base64Png});
 													// console.log(result);
@@ -485,7 +485,7 @@ console.log('fileInfo.type', fileInfo.type);
 													$elem.data('isChanged', true);
 													// console.log(result.PngInfo);
 													var base64Png = 'data:image/png;base64,' + result.PngInfo.base64;
-													console.log('base64Pngx2', base64Png);
+													// console.log('base64Pngx2', base64Png);
 
 													// HTML一旦削除して作り直し
 													$img.attr({
@@ -512,7 +512,7 @@ console.log('fileInfo.type', fileInfo.type);
 														});
 													} );
 
-													console.log(result);
+													// console.log(result);
 													it1.next(data);
 												}
 											);
@@ -625,7 +625,7 @@ console.log('fileInfo.type', fileInfo.type);
 			rtn.append(
 					$('<div>').append($DL_link)
 			);
-			console.log('rectData######', rectData);
+			// console.log('rectData######', rectData);
 			rtn.append(
 				$('<div class="jCrop-editor">').append($(_htmlImgEditor({
 				'imageData': $img[0].outerHTML,
@@ -655,7 +655,7 @@ console.log('fileInfo.type', fileInfo.type);
 			img1.src = editPng;
 			work_ctx.drawImage(img1, 0, 0);
 
-			console.log('【PNG】', editPng, orgPng);
+			// console.log('【PNG】', editPng, orgPng);
 
 			setTimeout(function(){ callback(); }, 0);
 		} );
@@ -722,7 +722,7 @@ console.log('fileInfo.type', fileInfo.type);
 				 * resKeyOrgPng
 				 ****************/
 				function(it1, data){
-					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
+					// if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyOrgPng, function(result){
 						if( result === false ){
 							_resMgr.addResource(function(newResKey){
@@ -736,7 +736,7 @@ console.log('fileInfo.type', fileInfo.type);
 					});
 				} ,
 				function(it1, data){
-					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
+					// if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyOrgPng, function(res){
 						resInfo = res;
 						it1.next(data);
@@ -744,11 +744,17 @@ console.log('fileInfo.type', fileInfo.type);
 					return;
 				} ,
 				function(it1, data){
-					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
+					// if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					resInfo.ext = 'png';
 					resInfo.type = 'image/png';
 					resInfo.size = 0;
 					resInfo.base64 = $('#jCrop-original-canvas')[0].toDataURL().replace(new RegExp('^data\\:[^\\;]*\\;base64\\,'), '');
+					if(resInfo.base64 === 'data:,'){
+						// console.log("オリジナルに登録されていない場合")
+						resInfo.base64 = $('canvas').get(2).toDataURL().replace(new RegExp('^data\\:[^\\;]*\\;base64\\,'), '');
+					}
+					// console.log('resInfo.base64', resInfo.base64);
+
 					resInfo.isPrivateMaterial = false;
 					resInfo.publicFilename = $dom.find('input[name='+mod.name+'-publicFilename]').val();
 					_resMgr.updateResource( data.resKeyOrgPng, resInfo, function(result){
@@ -765,7 +771,7 @@ console.log('fileInfo.type', fileInfo.type);
 				 * resKeyEditPng
 				 ****************/
 				function(it1, data){
-					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
+					// if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyEditPng, function(result){
 						if( result === false ){
 							_resMgr.addResource(function(newResKey){
@@ -779,7 +785,7 @@ console.log('fileInfo.type', fileInfo.type);
 					});
 				} ,
 				function(it1, data){
-					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
+					// if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					_resMgr.getResource(data.resKeyEditPng, function(res){
 						resInfo = res;
 						it1.next(data);
@@ -787,15 +793,21 @@ console.log('fileInfo.type', fileInfo.type);
 					return;
 				} ,
 				function(it1, data){
-					if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
+					// if($dom.data('isChanged') !== true){it1.next(data); return; } //スキップ処理
 					resInfo.ext = 'png';
 					resInfo.type = 'image/png';
 					resInfo.size = 0;
 					resInfo.base64 = $('#jCrop-work-canvas')[0].toDataURL().replace(new RegExp('^data\\:[^\\;]*\\;base64\\,'), '');
 					if(resInfo.base64 === 'data:,'){
-						// 空の場合は、originalを使う
+						// console.log("空の場合は、originalを使う")
 						resInfo.base64 = $('#jCrop-original-canvas')[0].toDataURL().replace(new RegExp('^data\\:[^\\;]*\\;base64\\,'), '');
 					}
+					if(resInfo.base64 === 'data:,'){
+						// console.log("オリジナルに登録されていない場合")
+						resInfo.base64 = $('canvas').get(2).toDataURL().replace(new RegExp('^data\\:[^\\;]*\\;base64\\,'), '');
+					}
+					// console.log('resInfo.base64', resInfo.base64);
+
 					resInfo.isPrivateMaterial = false;
 					// resInfo.publicFilename = $dom.find('input[name='+mod.name+'-publicFilename]').val();
 					_resMgr.updateResource( data.resKeyEditPng, resInfo, function(result){
