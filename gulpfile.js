@@ -42,11 +42,11 @@ gulp.task("test/main.js", function() {
 
 gulp.task("copy", function() {
 	gulp.src(["./libs/css/**/*"])
-		.pipe(gulp.dest( './tests/testdata/htdocs/libs/broccoli-imageeditor-field/dist/css/')) // テスト用
+		.pipe(gulp.dest( './tests/testdata/htdocs/libs/imageeditor/css/')) // テスト用
 		.pipe(gulp.dest( './dist/css/' )) // 本番用
 	;
 	gulp.src(["./libs/js/**/*"])
-		.pipe(gulp.dest( './tests/testdata/htdocs/libs/broccoli-imageeditor-field/dist/js/')) // テスト用
+		.pipe(gulp.dest( './tests/testdata/htdocs/libs/imageeditor/js/')) // テスト用
 		.pipe(gulp.dest( './dist/js/' )) // 本番用
 	;
 });

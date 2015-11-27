@@ -146,26 +146,6 @@ module.exports = function(broccoli){
 		*/}).toString().uHereDoc();
 
 		var _htmlImgEditor = _.template(htmlImgEditor);
-
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.href = '/libs/broccoli-imageeditor-field/dist/css/Jcrop.css';
-		rtn.append(link);
-
-		var url = [
-		"/libs/broccoli-imageeditor-field/dist/js/underscore-min.js",
-		"/libs/broccoli-imageeditor-field/dist/js/jquery.animate-colors-min.js",
-		"/libs/broccoli-imageeditor-field/dist/js/Jcrop.js",
-		"/libs/broccoli-imageeditor-field/dist/js/Jcrop-editor.js",
-		"/libs/broccoli-imageeditor-field/dist/js/rgbcolor.js"
-		];
-		for(var url_i=0; url_i< url.length; url_i++){
-			var script = document.createElement('script');
-			script.type = 'text/javascript';
-			script.src = url[url_i];
-			rtn.append(script);
-		}
-
 		var _this = this;
 		var $DL_link = "", DL_file = "";
 		if( typeof(data) !== typeof({}) ){ data = {}; }
