@@ -10,20 +10,20 @@ var twig = require("gulp-twig");//Twigテンプレートエンジン
 var browserify = require("gulp-browserify");//NodeJSのコードをブラウザ向けコードに変換
 var packageJson = require(__dirname+'/package.json');
 var _tasks = [
-	'broccoli-imageeditor-field.js',
+	'broccoli-field-image-editor.js',
 	'test/main.js',
 	'copy',
 ];
 
-// broccoli-imageeditor-field.js (front側) を処理
-gulp.task("broccoli-imageeditor-field.js", function() {
-	gulp.src(["src/broccoli-imageeditor-field.js"])
+// broccoli-field-image-editor.js (front側) を処理
+gulp.task("broccoli-field-image-editor.js", function() {
+	gulp.src(["src/broccoli-field-image-editor.js"])
 		.pipe(plumber())
 		.pipe(browserify({}))
-		.pipe(concat('broccoli-imageeditor-field.js'))
+		.pipe(concat('broccoli-field-image-editor.js'))
 		.pipe(gulp.dest( './dist/' ))
 		.pipe(gulp.dest( './tests/testdata/htdocs/libs/' ))
-		.pipe(concat('broccoli-imageeditor-field.min.js'))
+		.pipe(concat('broccoli-field-image-editor.min.js'))
 		.pipe(uglify())
 		.pipe(gulp.dest( './dist/' ))
 		.pipe(gulp.dest( './tests/testdata/htdocs/libs/' ))
@@ -36,6 +36,7 @@ gulp.task("test/main.js", function() {
 		.pipe(plumber())
 		.pipe(browserify({}))
 		.pipe(concat('main.js'))
+		.pipe(uglify()) // 難読化
 		.pipe(gulp.dest( './tests/testdata/htdocs/index_files/' ))
 	;
 });
@@ -48,6 +49,10 @@ gulp.task("copy", function() {
 	gulp.src(["./libs/js/**/*"])
 		.pipe(gulp.dest( './tests/testdata/htdocs/libs/imageeditor/js/')) // テスト用
 		.pipe(gulp.dest( './dist/js/' )) // 本番用
+	;
+	gulp.src(["./libs/img/**/*"])
+		.pipe(gulp.dest( './tests/testdata/htdocs/libs/imageeditor/img/')) // テスト用
+		.pipe(gulp.dest( './dist/img/' )) // 本番用
 	;
 });
 
