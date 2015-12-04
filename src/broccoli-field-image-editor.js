@@ -1,3 +1,3 @@
 (function(window){
-	window.BroccoliImageEditorField = require('../libs/client.js');
+	window.BroccoliFieldImageEditor = require('../libs/client.js');
 })(window);

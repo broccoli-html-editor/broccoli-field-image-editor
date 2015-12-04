@@ -1,17 +1,17 @@
-# broccoli-imageeditor-field
+# broccoli-field-image-editor
 
-_broccoli-imageeditor-field_ は、 _broccoli-html-editor_ に カスタムフィールド "画像編集フィールド" を追加する拡張パッケージです。
+_broccoli-field-image-editor_ は、 _broccoli-html-editor_ に カスタムフィールド "画像編集フィールド" を追加する拡張パッケージです。
 
 ※ モジュール化手順
 下リンクの差分箇所を修正します  
 https://goo.gl/aOB8Jn
 
 ※ 設定手順
-### broccoli-imageeditor-field install
+### broccoli-field-image-editor install
 - youngcorn/package.jsonに一行追加
 ```
 "dependencies": {
-  "broccoli-imageeditor-field": "git://github.com/pickles2/broccoli-imageeditor-field.git",
+  "broccoli-field-image-editor": "git://github.com/pickles2/broccoli-field-image-editor.git",
 }
 ```
 - npmモジュールダウンロード
@@ -26,7 +26,7 @@ https://goo.gl/aOB8Jn
 ```
 ```js
 // broccoli-client (frontend) を処理
-gulp.src(["node_modules/broccoli-imageeditor-field/dist/**/*"])
+gulp.src(["node_modules/broccoli-field-image-editor/dist/**/*"])
   .pipe(gulp.dest("./dist/{PATH_TO_YOUR_DIRECTORY}"))
 ;
 ```
@@ -37,7 +37,7 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/**/*"])
 ```
 ```js
 'customFields': {
-  'imageeditor': require('broccoli-imageeditor-field')
+  'image-editor': require('broccoli-field-image-editor')
 },
 ```
 
@@ -46,8 +46,8 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/**/*"])
 # atom  src/project/themeEditor/editors/broccoli-html-editor/index.html.twig
 ```
 ```js
-<!--broccoli-imageeditor-field -->
-<script src="/{PATH_TO_YOUR_DIRECTORY}broccoli-imageeditor-field.js"></script>
+<!--broccoli-field-image-editor -->
+<script src="/{PATH_TO_YOUR_DIRECTORY}broccoli-field-image-editor.js"></script>
 <link rel="stylesheet" href="/{PATH_TO_YOUR_DIRECTORY}css/Jcrop.css" />
 <script src="/{PATH_TO_YOUR_DIRECTORY}Jcrop-editor.js"></script>
 <script src="/{PATH_TO_YOUR_DIRECTORY}Jcrop.js"></script>
@@ -63,13 +63,13 @@ gulp.src(["node_modules/broccoli-imageeditor-field/dist/**/*"])
 ```
 ```js
 'customFields': {
-  'imageeditor': window.BroccoliImageEditorField
+  'image-editor': window.BroccoliFieldImageEditor
 },
 ```
 
 - templateを追加
 ```
-# cp node_modules/broccoli-imageeditor-field/tests/testdata/modules1/dev/imageeditor {PATH_TO_YOUR_PROJECT_DIRECTORY}/px-files/themes/broccoli/modules/images/
+# cp node_modules/broccoli-field-image-editor/tests/testdata/modules1/dev/image-editor {PATH_TO_YOUR_PROJECT_DIRECTORY}/px-files/themes/broccoli/modules/images/
 ```
 
 - 配置&実行

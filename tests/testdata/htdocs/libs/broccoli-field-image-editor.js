@@ -16912,7 +16912,7 @@ module.exports = phpjs;
 
 },{}],23:[function(require,module,exports){
 (function(window){
-	window.BroccoliImageEditorField = require('../libs/client.js');
+	window.BroccoliFieldImageEditor = require('../libs/client.js');
 })(window);
 
 },{"../libs/client.js":1}]},{},[23])
