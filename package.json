@@ -1,5 +1,5 @@
 {
-  "name": "broccoli-imageeditor-field",
+  "name": "broccoli-field-image-editor",
   "version": "0.0.1-alpha.1+nb",
   "description": "",
   "main": "libs/server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pickles2/broccoli-imageeditor-field.git"
+    "url": "git+https://github.com/pickles2/broccoli-field-image-editor.git"
   },
   "author": "Misaki Shibata",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pickles2/broccoli-imageeditor-field/issues"
+    "url": "https://github.com/pickles2/broccoli-field-image-editor/issues"
   },
-  "homepage": "https://github.com/pickles2/broccoli-imageeditor-field#readme",
+  "homepage": "https://github.com/pickles2/broccoli-field-image-editor#readme",
   "dependencies": {
     "cheerio": "^0.19.0",
     "desktop-utils": "git://github.com/tomk79/node-desktop-utils.git",
